@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy - TradeMate</title>
+  
+  <!-- TradeMate Official Browser Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='bgGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23080A0F'/%3E%3Cstop offset='100%25' stop-color='%2312151D'/%3E%3C/linearGradient%3E%3ClinearGradient id='tGrad' x1='10%25' y1='70%25' x2='90%25' y2='15%25'%3E%3Cstop offset='0%25' stop-color='%2300E5FF'/%3E%3Cstop offset='100%25' stop-color='%2300F29D'/%3E%3C/linearGradient%3E%3ClinearGradient id='cGreen' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300F29D'/%3E%3Cstop offset='100%25' stop-color='%23059669'/%3E%3C/linearGradient%3E%3ClinearGradient id='cRed' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23F43F5E'/%3E%3Cstop offset='100%25' stop-color='%23BE123C'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='512' height='512' rx='128' fill='url(%23bgGrad)' stroke='%231C212E' stroke-width='16'/%3E%3Cg transform='translate(256, 256) scale(0.84) translate(-256, -256)'%3E%3Cpath d='M 76 52 H 132 V 70 H 113 V 120 H 95 V 70 H 76 Z' fill='%23FFFFFF'/%3E%3Cpath d='M 140 52 H 160 L 177 94 L 194 52 H 214 V 120 H 197 V 78 L 183 108 H 171 L 157 78 V 120 H 140 Z' fill='%2300F29D'/%3E%3Cline x1='92' y1='340' x2='92' y2='460' stroke='url(%23cRed)' stroke-width='11' stroke-linecap='round'/%3E%3Crect x='66' y='362' width='52' height='74' rx='10' fill='url(%23cRed)'/%3E%3Cline x1='184' y1='260' x2='184' y2='464' stroke='url(%23cGreen)' stroke-width='12' stroke-linecap='round'/%3E%3Crect x='158' y='286' width='52' height='148' rx='10' fill='url(%23cGreen)'/%3E%3Cline x1='289' y1='312' x2='289' y2='460' stroke='url(%23cRed)' stroke-width='11' stroke-linecap='round'/%3E%3Crect x='263' y='336' width='52' height='98' rx='10' fill='url(%23cRed)'/%3E%3Cline x1='412' y1='176' x2='412' y2='464' stroke='url(%23cGreen)' stroke-width='13' stroke-linecap='round'/%3E%3Crect x='385' y='210' width='54' height='224' rx='12' fill='url(%23cGreen)'/%3E%3Cpath d='M 72 312 L 184 195 C 218 195 248 270 289 270 L 416 118' stroke='url(%23tGrad)' stroke-width='22' stroke-linecap='round' fill='none'/%3E%3Cpolygon points='445,80 380,105 404,129 419,150' fill='%2300F29D'/%3E%3Ccircle cx='184' cy='195' r='28' fill='%23030509' stroke='url(%23tGrad)' stroke-width='14'/%3E%3Ccircle cx='184' cy='195' r='14' fill='%23FBBF24'/%3E%3Ccircle cx='289' cy='270' r='28' fill='%23030509' stroke='url(%23tGrad)' stroke-width='14'/%3E%3Ccircle cx='289' cy='270' r='14' fill='%23FBBF24'/%3E%3C/g%3E%3C/svg%3E">
+
   <style>
     :root {
       --bg: #080A0F;
@@ -19,17 +23,53 @@
       margin: 0;
       padding: 0;
     }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       background-color: var(--bg);
       color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.7;
-      padding: 32px 16px 64px 16px;
+      padding: 32px 16px 80px 16px;
+      overflow-x: hidden;
+      position: relative;
     }
+
+    /* Top Reading Progress Bar */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent));
+      box-shadow: 0 0 10px rgba(0, 242, 157, 0.6);
+      z-index: 1000;
+      transition: width 0.1s ease-out;
+    }
+
+    /* Background Ambient Glow */
+    .ambient-glow {
+      position: fixed;
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(0, 242, 157, 0.08) 0%, rgba(0, 229, 255, 0.04) 50%, transparent 80%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
     .container {
       max-width: 800px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
+
+    /* Header Entrance Animation */
     .header {
       text-align: center;
       margin-bottom: 40px;
@@ -38,7 +78,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      animation: fadeInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
+
     .logo-wrapper {
       position: relative;
       width: 76px;
@@ -52,13 +94,20 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 14px;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+      cursor: pointer;
+    }
+    .logo-wrapper:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 0 45px rgba(0, 242, 157, 0.5), 0 0 85px rgba(0, 229, 255, 0.3);
     }
     .logo-wrapper svg {
       width: 100%;
       height: 100%;
     }
+
     .brand-title {
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 800;
       letter-spacing: -0.5px;
       line-height: 1.2;
@@ -74,6 +123,7 @@
       color: var(--accent);
       text-shadow: 0 0 20px rgba(0, 242, 157, 0.4);
     }
+
     .badge {
       display: inline-block;
       padding: 4px 14px;
@@ -86,7 +136,14 @@
       letter-spacing: 0.8px;
       margin-bottom: 12px;
       text-transform: uppercase;
+      transition: all 0.3s ease;
     }
+    .badge:hover {
+      background: rgba(0, 242, 157, 0.18);
+      border-color: rgba(0, 242, 157, 0.6);
+      transform: scale(1.03);
+    }
+
     h1 {
       font-size: 2.1rem;
       font-weight: 800;
@@ -98,13 +155,28 @@
       color: var(--muted);
       font-size: 14px;
     }
+
+    /* Scroll-Triggered Reveal Cards */
     .card {
       background-color: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 16px;
       padding: 24px;
       margin-bottom: 24px;
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+      will-change: opacity, transform;
     }
+    .card.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .card:hover {
+      border-color: rgba(0, 242, 157, 0.35);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+    }
+
     h2 {
       font-size: 1.25rem;
       font-weight: 700;
@@ -129,42 +201,122 @@
     }
     li {
       margin-bottom: 8px;
+      transition: color 0.2s ease;
+    }
+    li:hover {
+      color: var(--text);
     }
     strong {
       color: var(--text);
     }
+
     .highlight-box {
       background: rgba(0, 229, 255, 0.05);
       border: 1px solid rgba(0, 229, 255, 0.2);
       border-radius: 12px;
       padding: 16px;
       margin-bottom: 16px;
+      transition: all 0.3s ease;
+    }
+    .highlight-box:hover {
+      background: rgba(0, 229, 255, 0.08);
+      border-color: rgba(0, 229, 255, 0.4);
+      transform: translateX(4px);
     }
     .highlight-box p {
       color: #E2E8F0;
     }
+
     .contact-link {
       color: var(--accent-cyan);
       text-decoration: none;
       font-weight: 600;
+      position: relative;
+      transition: color 0.2s ease;
     }
     .contact-link:hover {
+      color: var(--accent);
       text-decoration: underline;
     }
+
     .footer {
       text-align: center;
       color: var(--muted);
       font-size: 13px;
-      margin-top: 40px;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--card-border);
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    /* Back to Top Floating Button */
+    #back-to-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #12151D;
+      border: 1px solid var(--card-border);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      z-index: 99;
+    }
+    #back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    #back-to-top:hover {
+      background: #1C212E;
+      border-color: var(--accent);
+      box-shadow: 0 0 15px rgba(0, 242, 157, 0.4);
+      transform: translateY(-2px);
+    }
+    #back-to-top svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+    }
+
+    /* Keyframes */
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-24px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
     }
   </style>
 </head>
 <body>
+  <!-- Top Reading Progress Indicator -->
+  <div id="progress-bar"></div>
+
+  <!-- Ambient Glow Background -->
+  <div class="ambient-glow"></div>
+
   <div class="container">
     
     <div class="header">
       <!-- App Emblem -->
-      <div class="logo-wrapper">
+      <div class="logo-wrapper" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="TradeMate">
         <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
           <defs>
             <linearGradient id="polTrendGrad" x1="10%" y1="70%" x2="90%" y2="15%">
@@ -181,8 +333,8 @@
               <stop offset="100%" stop-color="#BE123C" />
             </linearGradient>
             <linearGradient id="polAmberNode" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#FBBF24" />
-              <stop offset="100%" stop-color="#F59E0B" />
+              <stop offset="0%" stop-color="#F59E0B" />
+              <stop offset="100%" stop-color="#D97706" />
             </linearGradient>
           </defs>
           
@@ -270,7 +422,7 @@
       <ul>
         <li><strong>Internet Access:</strong> Required only for serving advertisements and verifying Play Store licensing.</li>
         <li><strong>Network State:</strong> Checks for active internet connectivity to load ad banners.</li>
-        <li><strong>No Dangerous Permissions:</strong> TradeMate does <strong>NOT</strong> request access to your Contacts, Camera, Microphone, SMS, or Location.</li>
+        <li><strong>No Dangerous Permissions:</strong> TradeMate does <strong>NOT</strong> request access to your Contacts, Camera, Microphone, SMS, or GPS Location.</li>
       </ul>
     </div>
 
@@ -310,5 +462,56 @@
     </div>
 
   </div>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Back to top" aria-label="Back to top">
+    <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Interactive Animation & Scroll Scripts -->
+  <script>
+    // 1. Scroll-Triggered Reveal Animation using IntersectionObserver
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.12
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          // Stagger card reveals smoothly
+          setTimeout(() => {
+            entry.target.classList.add('revealed');
+          }, index * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.card').forEach((card) => {
+      revealObserver.observe(card);
+    });
+
+    // 2. Reading Progress Bar & Back to Top Button visibility
+    const progressBar = document.getElementById('progress-bar');
+    const backToTopBtn = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      
+      progressBar.style.width = progress + '%';
+
+      if (scrollTop > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+  </script>
 </body>
 </html>
