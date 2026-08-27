@@ -15,12 +15,14 @@
       --bg: #080A0F;
       --card-bg: #12151D;
       --card-border: #1C212E;
-      --sub-card: #090C12;
-      --sub-card-hover: #151923;
+      --sub-card: #080A0F;
+      --sub-card-hover: #141822;
       --red-trade: #FF385C;
       --green-mate: #00F29D;
       --cyan-accent: #00E5FF;
-      --amber-node: #F59E0B;
+      --purple-border: rgba(168, 85, 247, 0.45);
+      --purple-bg: rgba(168, 85, 247, 0.12);
+      --purple-text: #C084FC;
       --text-main: #F8FAFC;
       --text-muted: #94A3B8;
       --text-dim: #64748B;
@@ -60,18 +62,6 @@
       transition: width 0.1s ease-out;
     }
 
-    /* Background Dynamic Canvas */
-    #chart-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.35;
-    }
-
     /* Custom Scrollbar */
     ::-webkit-scrollbar {
       width: 8px;
@@ -92,34 +82,22 @@
       z-index: 1;
       max-width: 880px;
       margin: 0 auto;
-      padding: 32px 16px 64px;
+      padding: 36px 16px 64px;
     }
 
-    /* ================= HERO BANNER SECTION ================= */
+    /* ================= FIRST CARD: HERO HEADER (TRANSPARENT WITH PURPLE BORDER) ================= */
     .hero-banner {
-      background: radial-gradient(circle at 50% 0%, rgba(0, 242, 157, 0.08), transparent 70%),
-                  radial-gradient(circle at 10% 20%, rgba(255, 56, 92, 0.06), transparent 50%),
-                  var(--card-bg);
-      border: 1px solid var(--card-border);
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.06) 0%, rgba(99, 102, 241, 0.04) 50%, rgba(18, 21, 29, 0.6) 100%);
+      border: 1px solid var(--purple-border);
       border-radius: 28px;
-      padding: 36px 32px;
+      padding: 34px 32px;
       margin-bottom: 28px;
-      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.8), 0 0 24px rgba(168, 85, 247, 0.1);
       position: relative;
-      overflow: hidden;
       display: flex;
       flex-direction: column;
       gap: 20px;
-    }
-
-    .hero-banner::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--red-trade), var(--green-mate), var(--cyan-accent), transparent);
+      backdrop-filter: blur(10px);
     }
 
     .hero-header {
@@ -136,7 +114,7 @@
       gap: 20px;
     }
 
-    /* 3D Interactive Logo Pop-up */
+    /* Interactive Logo Pop-up with Emerald Outward Glow */
     .logo-anchor {
       perspective: 900px;
       text-decoration: none;
@@ -148,9 +126,10 @@
       height: 72px;
       border-radius: 20px;
       background: #080A0F;
-      border: 2px solid #1C212E;
+      border: 2px solid #00F29D;
       padding: 4px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+      /* Emerald glowing outward effect */
+      box-shadow: 0 0 24px rgba(0, 242, 157, 0.45), 0 8px 24px rgba(0, 0, 0, 0.7);
       transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
       display: block;
       cursor: pointer;
@@ -158,9 +137,9 @@
 
     .logo-anchor:hover .logo-frame,
     .logo-anchor:focus .logo-frame {
-      transform: translateY(-6px) scale(1.15) rotate(-3deg);
-      border-color: var(--green-mate);
-      box-shadow: 0 16px 36px -4px rgba(0, 242, 157, 0.4), 0 0 24px rgba(255, 56, 92, 0.3);
+      transform: translateY(-6px) scale(1.14) rotate(-3deg);
+      border-color: #00F29D;
+      box-shadow: 0 0 36px rgba(0, 242, 157, 0.75), 0 0 20px rgba(255, 56, 92, 0.35);
     }
 
     .brand-titles h1 {
@@ -191,32 +170,34 @@
       letter-spacing: 0.2px;
     }
 
+    /* Purple Tag Badge */
     .meta-tag {
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
-      font-weight: 700;
-      color: var(--cyan-accent);
-      background: rgba(0, 229, 255, 0.08);
-      border: 1px solid rgba(0, 229, 255, 0.25);
+      font-weight: 800;
+      color: var(--purple-text);
+      background: var(--purple-bg);
+      border: 1px solid var(--purple-border);
       padding: 8px 16px;
       border-radius: 12px;
       display: flex;
       flex-direction: column;
       gap: 2px;
       text-align: right;
+      box-shadow: 0 0 16px rgba(168, 85, 247, 0.15);
     }
 
-    /* Live Stat Bar inside Banner */
+    /* Stat Bar inside First Card */
     .hero-stat-row {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      padding-top: 14px;
-      border-top: 1px solid #1C212E;
+      padding-top: 16px;
+      border-top: 1px solid rgba(168, 85, 247, 0.2);
     }
 
     .stat-badge {
-      background: #090C12;
+      background: #080A0F;
       border: 1px solid #1C212E;
       border-radius: 10px;
       padding: 8px 14px;
@@ -519,17 +500,14 @@
   <!-- Reading Progress Bar -->
   <div id="progress-bar"></div>
 
-  <!-- Interactive Chart Canvas Background -->
-  <canvas id="chart-canvas"></canvas>
-
   <div class="wrapper">
 
-    <!-- Hero Banner with App Logo, App Name & Caption -->
+    <!-- First Card: Transparent with Purple Border & Emerald Glowing App Logo -->
     <div class="hero-banner">
       <div class="hero-header">
         <div class="brand-cluster">
           
-          <!-- Logo with Pop-up Hover Effect -->
+          <!-- Logo with Emerald Outward Glow -->
           <a href="#" class="logo-anchor" title="TradeMate Official Logo">
             <svg class="logo-frame" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
@@ -554,7 +532,7 @@
               
               <!-- Container Border Matching 4096px Asset -->
               <rect width="512" height="512" rx="112" fill="url(#logoBg)" />
-              <rect x="8" y="8" width="496" height="496" rx="104" stroke="#00F29D" stroke-width="4" stroke-opacity="0.8" />
+              <rect x="8" y="8" width="496" height="496" rx="104" stroke="#00F29D" stroke-width="4" stroke-opacity="0.9" />
 
               <g transform="translate(256, 256) scale(0.88) translate(-256, -256)">
                 <!-- Letter T (Red #FF385C) -->
@@ -596,6 +574,7 @@
           </div>
         </div>
 
+        <!-- Purple Tag Badge -->
         <div class="meta-tag">
           <span>Official Privacy Policy</span>
           <span style="color: var(--text-muted); font-size: 10px;">Version: Production 2026</span>
@@ -614,7 +593,7 @@
         </div>
         <div class="stat-badge">
           <span style="color: var(--green-mate); font-weight: bold;">🛡️ Local</span>
-          <span>Device Encryption</span>
+          <span>Device Storage Only</span>
         </div>
       </div>
     </div>
@@ -731,7 +710,6 @@
   <!-- Toast Notification -->
   <div id="copy-toast">Email Copied to Clipboard!</div>
 
-  <!-- Interactive Background Canvas Script -->
   <script>
     // Scroll Progress Indicator
     window.addEventListener('scroll', () => {
@@ -751,88 +729,6 @@
         }, 2200);
       });
     }
-
-    // Dynamic Chart Canvas Animation
-    const canvas = document.getElementById('chart-canvas');
-    const ctx = canvas.getContext('2d');
-    let width, height;
-
-    function resize() {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resize);
-    resize();
-
-    // Chart parameters
-    const candles = [];
-    const candleCount = 28;
-    for (let i = 0; i < candleCount; i++) {
-      candles.push({
-        x: (i / candleCount),
-        open: 0.4 + Math.random() * 0.3,
-        close: 0.4 + Math.random() * 0.3,
-        highOffset: 0.05 + Math.random() * 0.08,
-        lowOffset: 0.05 + Math.random() * 0.08,
-        speed: 0.0003 + Math.random() * 0.0004,
-        phase: Math.random() * Math.PI * 2
-      });
-    }
-
-    let time = 0;
-    function render() {
-      ctx.clearRect(0, 0, width, height);
-      time += 0.015;
-
-      const spacing = width / candleCount;
-      const candleWidth = Math.max(6, spacing * 0.45);
-
-      // Draw Candlesticks
-      candles.forEach((c, idx) => {
-        const x = idx * spacing + spacing / 2;
-        const wave = Math.sin(time * 0.8 + idx * 0.3) * 0.06;
-        const currentOpen = (c.open + wave) * height;
-        const currentClose = (c.close - wave) * height;
-        const high = Math.min(currentOpen, currentClose) - c.highOffset * height;
-        const low = Math.max(currentOpen, currentClose) + c.lowOffset * height;
-        
-        const isBullish = currentClose < currentOpen;
-        const color = isBullish ? '#00F29D' : '#FF385C';
-
-        // Wick
-        ctx.strokeStyle = color;
-        ctx.lineWidth = 1.5;
-        ctx.beginPath();
-        ctx.moveTo(x, high);
-        ctx.lineTo(x, low);
-        ctx.stroke();
-
-        // Body
-        ctx.fillStyle = color;
-        const topY = Math.min(currentOpen, currentClose);
-        const bodyHeight = Math.max(4, Math.abs(currentClose - currentOpen));
-        ctx.fillRect(x - candleWidth / 2, topY, candleWidth, bodyHeight);
-      });
-
-      // Draw Glowing Trendline Wave
-      ctx.beginPath();
-      ctx.strokeStyle = '#00F29D';
-      ctx.lineWidth = 2.5;
-      ctx.shadowColor = '#00F29D';
-      ctx.shadowBlur = 12;
-
-      for (let x = 0; x <= width; x += 15) {
-        const normX = x / width;
-        const y = (0.55 + Math.sin(time + normX * 4) * 0.15 + Math.cos(time * 0.5 + normX * 8) * 0.05) * height;
-        if (x === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      }
-      ctx.stroke();
-      ctx.shadowBlur = 0; // reset
-
-      requestAnimationFrame(render);
-    }
-    render();
   </script>
 
 </body>
