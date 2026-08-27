@@ -1,526 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy & Terms — TradeMate: Stock & Options Calculator</title>
-  <meta name="description" content="Official Privacy Policy, Data Governance, and Terms of Service for TradeMate: Stock & Options Calculator app." />
-  
-  <!-- Favicon / Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - TradeMate</title>
+    <style>
+        :root {
+            --primary: #00F29D;
+            --primary-dark: #00D285;
+            --trade-red: #FF385C;
+            --bg: #080A0F;
+            --card-bg: #12151D;
+            --text-main: #FFFFFF;
+            --text-muted: #94A3B8;
+            --border: #1C212E;
+        }
 
-  <style>
-    :root {
-      --bg: #080A0F;
-      --card-bg: #12151D;
-      --card-border: #1C212E;
-      --sub-card: #0D1017;
-      --red-trade: #FF385C;
-      --green-mate: #00F29D;
-      --cyan-accent: #00E5FF;
-      --text-main: #F1F5F9;
-      --text-muted: #94A3B8;
-      --text-dim: #64748B;
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
 
-    body {
-      background-color: var(--bg);
-      color: var(--text-main);
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      padding: 24px 16px;
-    }
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
 
-    .container {
-      max-width: 860px;
-      margin: 0 auto;
-    }
+        .logo-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: #080A0F;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    /* Header & Logo */
-    header {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      padding: 24px;
-      margin-bottom: 24px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5);
-    }
+        .app-name {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin: 0;
+        }
 
-    .logo-group {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
+        .text-trade {
+            color: var(--trade-red);
+        }
 
-    .logo-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      overflow: hidden;
-      flex-shrink: 0;
-      box-shadow: 0 4px 12px rgba(0, 242, 157, 0.15);
-    }
+        .text-mate {
+            color: var(--primary);
+        }
 
-    .brand-title {
-      font-size: 26px;
-      font-weight: 900;
-      letter-spacing: -0.5px;
-      display: flex;
-      align-items: center;
-      gap: 2px;
-      line-height: 1.1;
-    }
+        h1 {
+            font-size: 20px;
+            color: var(--text-main);
+            margin-top: 4px;
+            margin-bottom: 0;
+        }
 
-    .text-trade {
-      color: var(--red-trade);
-      text-shadow: 0 0 16px rgba(255, 56, 92, 0.35);
-    }
+        h2 {
+            font-size: 16px;
+            color: var(--text-main);
+            margin-top: 24px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 6px;
+        }
 
-    .text-mate {
-      color: var(--green-mate);
-      text-shadow: 0 0 16px rgba(0, 242, 157, 0.35);
-    }
+        p, li {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
 
-    .badge-policy {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 700;
-      background: #181C26;
-      color: #94A3B8;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid #283042;
-      display: inline-block;
-      margin-left: 8px;
-    }
+        ul {
+            padding-left: 20px;
+            margin-bottom: 16px;
+        }
 
-    .subtitle {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
+        li {
+            margin-bottom: 6px;
+        }
 
-    .effective-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      color: var(--cyan-accent);
-      background: rgba(0, 229, 255, 0.08);
-      border: 1px solid rgba(0, 229, 255, 0.2);
-      padding: 6px 12px;
-      border-radius: 10px;
-      text-align: right;
-    }
+        .highlight-box {
+            background-color: #080A0F;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px;
+            margin: 16px 0;
+        }
 
-    /* Key Privacy Banner */
-    .highlight-card {
-      background: linear-gradient(135deg, rgba(0, 242, 157, 0.08) 0%, rgba(0, 229, 255, 0.04) 100%);
-      border: 1px solid rgba(0, 242, 157, 0.3);
-      border-radius: 16px;
-      padding: 20px;
-      margin-bottom: 24px;
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-    }
+        .highlight-box p {
+            margin: 0;
+            color: #CBD5E1;
+        }
 
-    .highlight-icon {
-      font-size: 24px;
-      line-height: 1;
-      background: rgba(0, 242, 157, 0.15);
-      border: 1px solid rgba(0, 242, 157, 0.3);
-      padding: 10px;
-      border-radius: 12px;
-    }
+        .effective-date {
+            font-size: 12px;
+            color: #64748B;
+            margin-bottom: 20px;
+        }
 
-    .highlight-card h3 {
-      color: var(--green-mate);
-      font-size: 15px;
-      font-weight: 800;
-      margin-bottom: 4px;
-    }
+        .footer {
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: #64748B;
+            text-align: center;
+        }
 
-    .highlight-card p {
-      font-size: 13px;
-      color: #CBD5E1;
-    }
+        a {
+            color: #00E5FF;
+            text-decoration: none;
+        }
 
-    /* Content Cards */
-    .policy-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 18px;
-      padding: 24px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 20px -2px rgba(0,0,0,0.3);
-    }
-
-    .policy-card h2 {
-      font-size: 16px;
-      font-weight: 800;
-      color: #FFFFFF;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .policy-card h2 .num-pill {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      background: #181C26;
-      color: var(--cyan-accent);
-      border: 1px solid #283042;
-      width: 26px;
-      height: 26px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-      flex-shrink: 0;
-    }
-
-    .policy-card p {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-    }
-
-    .policy-card p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Sub Grids & Lists */
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px;
-      margin-top: 14px;
-    }
-
-    .sub-item {
-      background: var(--sub-card);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 14px;
-    }
-
-    .sub-item strong {
-      font-size: 13px;
-      color: var(--text-main);
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .sub-item span {
-      font-size: 12px;
-      color: var(--text-dim);
-    }
-
-    ul.bullet-list {
-      list-style: none;
-      margin: 12px 0;
-    }
-
-    ul.bullet-list li {
-      font-size: 13px;
-      color: #CBD5E1;
-      padding-left: 24px;
-      position: relative;
-      margin-bottom: 8px;
-    }
-
-    ul.bullet-list li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: var(--green-mate);
-      font-weight: 900;
-    }
-
-    /* Disclaimer Card */
-    .disclaimer-card {
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(239, 68, 68, 0.04) 100%);
-      border: 1px solid rgba(245, 158, 11, 0.3);
-      border-radius: 18px;
-      padding: 24px;
-      margin-bottom: 24px;
-    }
-
-    .disclaimer-card h2 {
-      color: #FBBF24;
-      font-size: 15px;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-
-    .disclaimer-card p {
-      font-size: 12.5px;
-      color: #E2E8F0;
-      line-height: 1.6;
-    }
-
-    /* Contact Box */
-    .contact-box {
-      background: var(--sub-card);
-      border: 1px solid var(--card-border);
-      border-radius: 14px;
-      padding: 16px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 14px;
-    }
-
-    .email-chip {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--cyan-accent);
-      background: #12151D;
-      border: 1px solid #1C212E;
-      padding: 8px 14px;
-      border-radius: 10px;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-
-    .email-chip:hover {
-      background: #181D28;
-      border-color: var(--cyan-accent);
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 24px 0 12px;
-      font-size: 12px;
-      color: var(--text-dim);
-      border-top: 1px solid #181C26;
-      margin-top: 32px;
-    }
-
-    footer a {
-      color: var(--text-muted);
-      text-decoration: none;
-      margin: 0 8px;
-    }
-
-    footer a:hover {
-      color: var(--cyan-accent);
-    }
-
-    @media (max-width: 600px) {
-      body { padding: 16px 12px; }
-      header { padding: 18px; }
-      .brand-title { font-size: 22px; }
-      .effective-tag { text-align: left; }
-    }
-  </style>
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="container">
-
-    <!-- Header Section -->
+<div class="container">
     <header>
-      <div class="logo-group">
-        <!-- SVG Vector Logo Matching App Icon with Red T and Green M -->
-        <svg class="logo-icon" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="bgGrad" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#080A0F" />
-              <stop offset="100%" stop-color="#0D1017" />
-            </linearGradient>
-            <linearGradient id="tmRed" x1="76" y1="52" x2="132" y2="120" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#FF385C" />
-              <stop offset="100%" stop-color="#E02447" />
-            </linearGradient>
-            <linearGradient id="tmGreen" x1="140" y1="52" x2="204" y2="120" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#00F29D" />
-              <stop offset="100%" stop-color="#00D285" />
-            </linearGradient>
-            <linearGradient id="neonGreenLine" x1="60" y1="360" x2="452" y2="100" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#00E5FF" />
-              <stop offset="60%" stop-color="#00F29D" />
-              <stop offset="100%" stop-color="#FFFFFF" />
-            </linearGradient>
-          </defs>
-          
-          <rect width="512" height="512" rx="108" fill="url(#bgGrad)" />
-          <rect x="6" y="6" width="500" height="500" rx="102" stroke="#1C212E" stroke-width="4" />
-
-          <!-- TM Monogram: T in Red, M in Neon Green -->
-          <g transform="translate(256, 256) scale(0.88) translate(-256, -256)">
-            <!-- Letter T (Red) -->
-            <path d="M 76 52 H 132 V 70 H 113 V 120 H 95 V 70 H 76 Z" fill="url(#tmRed)" />
-            <!-- Letter M (Neon Green) -->
-            <path d="M 140 52 H 158 L 172 88 L 186 52 H 204 V 120 H 188 V 78 L 176 106 H 168 L 156 78 V 120 H 140 Z" fill="url(#tmGreen)" />
-            
-            <!-- Red Candlestick (Bearish/Entry) -->
-            <line x1="130" y1="180" x2="130" y2="380" stroke="#FF385C" stroke-width="3" stroke-linecap="round" />
-            <rect x="114" y="220" width="32" height="110" rx="5" fill="#FF385C" />
-
-            <!-- Green Candlestick (Bullish/Target) -->
-            <line x1="256" y1="130" x2="256" y2="400" stroke="#00F29D" stroke-width="3" stroke-linecap="round" />
-            <rect x="240" y="170" width="32" height="180" rx="5" fill="#00F29D" />
-
-            <!-- Cyan Candlestick (Breakout) -->
-            <line x1="382" y1="80" x2="382" y2="350" stroke="#00E5FF" stroke-width="3" stroke-linecap="round" />
-            <rect x="366" y="110" width="32" height="150" rx="5" fill="#00E5FF" />
-
-            <!-- Trend Pulse Wave -->
-            <path d="M 60 360 L 130 270 L 210 310 L 256 190 L 320 230 L 382 130 L 440 70" stroke="url(#neonGreenLine)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
-            <!-- Arrow Target Head -->
-            <polygon points="452,58 446,80 424,74" fill="#00F29D" />
-          </g>
-        </svg>
-
-        <div>
-          <div class="brand-title">
-            <span class="text-trade">Trade</span><span class="text-mate">Mate</span>
-            <span class="badge-policy">Privacy & Governance</span>
-          </div>
-          <p class="subtitle">Quantitative Calculation Utility for Stocks & Options</p>
+        <div class="logo-box">
+            <!-- Inline SVG Logo with Red T and Green M -->
+            <svg width="48" height="48" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="512" height="512" rx="108" fill="#080A0F" />
+                <rect x="6" y="6" width="500" height="500" rx="102" stroke="#1C212E" stroke-width="6" />
+                <g transform="translate(256, 256) scale(0.88) translate(-256, -256)">
+                    <!-- Red Letter T -->
+                    <path d="M 76 52 H 132 V 70 H 113 V 120 H 95 V 70 H 76 Z" fill="#FF385C" />
+                    <!-- Green Letter M -->
+                    <path d="M 140 52 H 158 L 172 88 L 186 52 H 204 V 120 H 188 V 78 L 176 106 H 168 L 156 78 V 120 H 140 Z" fill="#00F29D" />
+                    <!-- Red Candlestick -->
+                    <line x1="130" y1="180" x2="130" y2="380" stroke="#FF385C" stroke-width="4" stroke-linecap="round" />
+                    <rect x="114" y="220" width="32" height="110" rx="4" fill="#FF385C" />
+                    <!-- Green Candlestick -->
+                    <line x1="256" y1="130" x2="256" y2="400" stroke="#00F29D" stroke-width="4" stroke-linecap="round" />
+                    <rect x="240" y="170" width="32" height="180" rx="4" fill="#00F29D" />
+                    <!-- Cyan Candlestick -->
+                    <line x1="382" y1="80" x2="382" y2="350" stroke="#00E5FF" stroke-width="4" stroke-linecap="round" />
+                    <rect x="366" y="110" width="32" height="150" rx="4" fill="#00E5FF" />
+                    <!-- Trend Wave -->
+                    <path d="M 60 360 L 130 270 L 210 310 L 256 190 L 320 230 L 382 130 L 440 70" stroke="#00F29D" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+                    <polygon points="452,58 446,80 424,74" fill="#00F29D" />
+                </g>
+            </svg>
         </div>
-      </div>
-
-      <div class="effective-tag">
-        Updated: Current Release (2026)<br>
-        Version: 1.0.0 (Production)
-      </div>
+        <div>
+            <div class="app-name"><span class="text-trade">Trade</span><span class="text-mate">Mate</span></div>
+            <h1>Privacy Policy</h1>
+        </div>
     </header>
 
-    <!-- Key Guarantee Banner -->
-    <div class="highlight-card">
-      <div class="highlight-icon">🛡️</div>
-      <div>
-        <h3>100% Client-Side & Zero Remote Data Storage</h3>
-        <p>
-          <strong class="text-trade">Trade</strong><strong class="text-mate">Mate</strong> is engineered to perform all stock averaging, options lot computations, multi-tranche profit booking targets, trade simulations, and SIP compounding algorithms entirely on your local device. <strong>We do not operate remote databases to collect, store, or transmit your financial inputs.</strong>
-        </p>
-      </div>
+    <div class="effective-date">Effective Date: August 27, 2026</div>
+
+    <div class="highlight-box">
+        <p><strong>Privacy First:</strong> <span class="text-trade">Trade</span><span class="text-mate">Mate</span> is designed to work completely offline on your device. We do not collect, store, transmit, or share your financial figures, trade inputs, notes, or stock records.</p>
     </div>
 
-    <!-- Section 1: Data Collection -->
-    <div class="policy-card">
-      <h2><span class="num-pill">01</span> Information We Do NOT Collect</h2>
-      <p>Your trading and financial confidentiality is fundamental. When using <strong class="text-trade">Trade</strong><strong class="text-mate">Mate</strong>:</p>
-      <ul class="bullet-list">
-        <li><strong>No Broker Credentials:</strong> We never ask for broker logins, Demat accounts, API keys, or trading passwords.</li>
-        <li><strong>No Personal Identifiable Information (PII):</strong> No names, email addresses, phone numbers, PAN cards, or ID proofs are required to use calculators.</li>
-        <li><strong>No Financial Records:</strong> We do not collect or upload your buy prices, quantity sizes, trade notes, or portfolio values to any server.</li>
-      </ul>
+    <h2>1. Information Collection and Use</h2>
+    <p><span class="text-trade">Trade</span><span class="text-mate">Mate</span> does not require you to create an account, log in with broker credentials, or provide personal identification details (such as names, phone numbers, or PAN numbers).</p>
+    <ul>
+        <li><strong>Calculation Inputs:</strong> All numbers, buy prices, lot quantities, target percentages, and trade notes entered into calculators are processed exclusively on your device's memory.</li>
+        <li><strong>Local Storage:</strong> Your preferred currency setting, saved calculation snapshots, and 24-Hour Pro Pass expiry tokens are stored locally on your device using standard sandboxed storage.</li>
+    </ul>
+
+    <h2>2. Third-Party Advertising & Services</h2>
+    <p>The free version of <span class="text-trade">Trade</span><span class="text-mate">Mate</span> may display advertisements served via Google AdMob (Banner, Rewarded, or Interstitial Ads) to support development.</p>
+    <ul>
+        <li>Google AdMob may collect pseudonymous advertising identifiers subject to Google's Privacy Policy.</li>
+        <li>You can opt out of personalized ad tracking in your device's Android settings or upgrade to TradeMate Pro for an ad-free experience.</li>
+    </ul>
+
+    <h2>3. Export & Device Permissions</h2>
+    <p><span class="text-trade">Trade</span><span class="text-mate">Mate</span> requests device permissions strictly for user-initiated actions:</p>
+    <ul>
+        <li><strong>Storage / Files:</strong> Used only when you tap "Download PDF" or "Download Image" to save reports to your local Downloads directory.</li>
+        <li><strong>System Share:</strong> Invokes your operating system's standard share dialog when you explicitly tap "Share as PDF" or "Share Setup Card".</li>
+    </ul>
+
+    <h2>4. Financial Disclaimer</h2>
+    <p><span class="text-trade">Trade</span><span class="text-mate">Mate</span> is purely a mathematical calculation utility. We are <strong>not SEBI-registered</strong> or licensed financial advisors. The app does not offer investment tips, stock recommendations, or portfolio management services.</p>
+
+    <h2>5. Contact Us</h2>
+    <p>If you have any questions or feedback regarding this Privacy Policy, feel free to contact us at:</p>
+    <p><strong>Email:</strong> <a href="mailto:TradeMatePro.Support@gmail.com">TradeMatePro.Support@gmail.com</a></p>
+
+    <div class="footer">
+        &copy; 2026 <span class="text-trade">Trade</span><span class="text-mate">Mate</span>. All rights reserved.
     </div>
-
-    <!-- Section 2: Local Storage -->
-    <div class="policy-card">
-      <h2><span class="num-pill">02</span> Local Device Storage (localStorage)</h2>
-      <p>The application stores lightweight application state directly inside your browser or device sandboxed storage (<code>localStorage</code>) to enable core offline features:</p>
-      <div class="grid-3">
-        <div class="sub-item">
-          <strong>Currency Settings</strong>
-          <span>Remembers your preferred currency symbol (e.g., ₹ INR, $ USD, € EUR).</span>
-        </div>
-        <div class="sub-item">
-          <strong>Saved Calculation History</strong>
-          <span>Locally caches snapshots you explicitly choose to save via the "Save results" button.</span>
-        </div>
-        <div class="sub-item">
-          <strong>Pro Pass & Entitlements</strong>
-          <span>Stores 24-Hour Pro Pass expiry tokens earned via Rewarded Ads and in-app purchase receipts.</span>
-        </div>
-      </div>
-      <p style="margin-top: 14px; font-size: 12px; color: #94A3B8;">
-        <em>Note: You can permanently clear all stored local data at any time from inside the <strong>Settings &rarr; Clear History</strong> menu.</em>
-      </p>
-    </div>
-
-    <!-- Section 3: Third-Party Advertising & AdMob -->
-    <div class="policy-card">
-      <h2><span class="num-pill">03</span> Third-Party Advertising (Google AdMob)</h2>
-      <p>
-        The free tier of <strong class="text-trade">Trade</strong><strong class="text-mate">Mate</strong> is supported by non-intrusive advertisements served through <strong>Google AdMob</strong> (Banner, Rewarded 24-Hour Pro Pass, and Interstitial Video ads).
-      </p>
-      <p>
-        Google AdMob may collect and process pseudonymous identifiers (such as Google Advertising ID / IDFA) and general device telemetry to deliver relevant advertisements in compliance with Google's Privacy & Terms.
-      </p>
-      <ul class="bullet-list">
-        <li>You can reset or opt out of personalized ad tracking via your Android device <em>Settings &rarr; Google &rarr; Ads</em>.</li>
-        <li>Subscribing to <strong>TradeMate Pro</strong> or activating an ad-earned <strong>24-Hour Pro Pass</strong> completely disables all banner and interstitial ads across every screen.</li>
-      </ul>
-    </div>
-
-    <!-- Section 4: Export, PDF & Share Permissions -->
-    <div class="policy-card">
-      <h2><span class="num-pill">04</span> Device Permissions (PDF Export & Image Sharing)</h2>
-      <p>
-        <strong class="text-trade">Trade</strong><strong class="text-mate">Mate</strong> includes client-side utilities to download PDF reports and export PNG setup cards:
-      </p>
-      <ul class="bullet-list">
-        <li><strong>Storage / Files:</strong> Used solely when you trigger "Download PDF" or "Download Image" to save the rendered calculation report to your device's Downloads directory.</li>
-        <li><strong>System Share Dialog:</strong> Invokes the native OS share sheet only when you tap "Share as PDF" or "Share Setup Card". No data is shared without your explicit action.</li>
-      </ul>
-    </div>
-
-    <!-- Section 5: Regulatory Disclaimer -->
-    <div class="disclaimer-card">
-      <h2>⚠️ SEBI & Financial Calculation Disclaimer</h2>
-      <p>
-        <strong class="text-trade">Trade</strong><strong class="text-mate">Mate</strong> is strictly a mathematical arithmetic utility and quantitative data visualizer.
-      </p>
-      <p style="margin-top: 8px;">
-        <strong>TradeMate is NOT registered with SEBI (Securities and Exchange Board of India), FINRA, SEC, or any other financial regulatory authority.</strong> We do not provide buy/sell signals, stock recommendations, portfolio management, or financial advisory services. All outputs are algorithmic estimates based on your entered parameters. Trading in equities, derivatives (options & futures), and financial securities involves significant market risk.
-      </p>
-    </div>
-
-    <!-- Section 6: Contact & Inquiries -->
-    <div class="policy-card">
-      <h2><span class="num-pill">05</span> Privacy Inquiries & Support</h2>
-      <p>
-        If you have questions, feedback, or data governance inquiries regarding <strong class="text-trade">Trade</strong><strong class="text-mate">Mate</strong>, please contact our developer support:
-      </p>
-      <div class="contact-box">
-        <div>
-          <strong style="color: #FFFFFF; font-size: 13px; display: block;">TradeMate Developer Support</strong>
-          <span style="font-size: 11.5px; color: var(--text-dim);">Response within 24–48 business hours</span>
-        </div>
-        <a href="mailto:TradeMatePro.Support@gmail.com" class="email-chip">
-          ✉️ TradeMatePro.Support@gmail.com
-        </a>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2026 <strong class="text-trade">Trade</strong><strong class="text-mate">Mate</strong> • All Rights Reserved.</p>
-      <div style="margin-top: 8px;">
-        <a href="#top">Back to Top</a> &bull;
-        <a href="https://play.google.com/store/apps" target="_blank" rel="noopener noreferrer">Google Play Store</a> &bull;
-        <a href="mailto:TradeMatePro.Support@gmail.com">Contact Developer</a>
-      </div>
-    </footer>
-
-  </div>
+</div>
 
 </body>
 </html>
