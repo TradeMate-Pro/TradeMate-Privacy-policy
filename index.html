@@ -1,622 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TradeMate — Official Privacy Policy</title>
-  <meta name="description" content="Official Privacy Policy and Data Governance for TradeMate: Stock & Options Calculator app." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - TradeMate</title>
   <style>
     :root {
       --bg: #080A0F;
       --card-bg: #12151D;
       --card-border: #1C212E;
-      --sub-card: #080A0F;
-      --sub-card-hover: #161A24;
-      --red-trade: #FF385C;
-      --emerald-mate: #00F29D;
-      --cyan-accent: #00E5FF;
-      --text-main: #F8FAFC;
-      --text-muted: #94A3B8;
-      --text-dim: #64748B;
+      --text: #F1F5F9;
+      --muted: #94A3B8;
+      --accent: #00F29D;
+      --accent-cyan: #00E5FF;
     }
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       background-color: var(--bg);
-      color: var(--text-main);
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      padding: 32px 16px 64px;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px 16px 64px 16px;
     }
-
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #080A0F;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #1C212E;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #2B354C;
-    }
-
     .container {
-      max-width: 840px;
-      width: 100%;
-      animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      max-width: 800px;
+      margin: 0 auto;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(16px); }
-      to { opacity: 1; transform: translateY(0); }
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--card-border);
     }
-
-    /* ================= APP HEADER WITH HOVER POP-UP LOGO ================= */
-    header {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 24px;
-      padding: 24px 28px;
-      margin-bottom: 24px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.7);
-      position: relative;
-      overflow: hidden;
-    }
-
-    header::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--red-trade), var(--emerald-mate), var(--cyan-accent), transparent);
-    }
-
-    .brand-wrap {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-
-    /* Interactive Pop-up App Logo */
-    .logo-container {
-      position: relative;
-      cursor: pointer;
-      perspective: 800px;
-    }
-
-    .app-logo {
-      width: 58px;
-      height: 58px;
-      border-radius: 16px;
-      background: #080A0F;
-      border: 1.5px solid var(--card-border);
-      padding: 4px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
-      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-      transform-origin: center center;
-      display: block;
-    }
-
-    /* Hover & Focus Pop-up animation */
-    .logo-container:hover .app-logo,
-    .logo-container:focus-within .app-logo {
-      transform: translateY(-4px) scale(1.14) rotate(-3deg);
-      border-color: var(--emerald-mate);
-      box-shadow: 0 16px 36px -4px rgba(0, 242, 157, 0.35), 0 0 20px rgba(255, 56, 92, 0.25);
-    }
-
-    .logo-tooltip {
-      position: absolute;
-      bottom: -32px;
-      left: 50%;
-      transform: translateX(-50%) translateY(4px);
-      background: #0D1017;
-      color: #00F29D;
-      border: 1px solid #1C212E;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 6px;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.25s ease;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    }
-
-    .logo-container:hover .logo-tooltip {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    .title-box h1 {
-      font-size: 26px;
-      font-weight: 900;
-      letter-spacing: -0.5px;
-      line-height: 1.1;
-      display: flex;
-      align-items: center;
-      gap: 2px;
-    }
-
-    .text-trade {
-      color: var(--red-trade);
-      text-shadow: 0 0 18px rgba(255, 56, 92, 0.4);
-    }
-
-    .text-mate {
-      color: var(--emerald-mate);
-      text-shadow: 0 0 18px rgba(0, 242, 157, 0.4);
-    }
-
-    .title-box p {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-top: 4px;
-      font-weight: 500;
-    }
-
-    .meta-badge {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--cyan-accent);
-      background: rgba(0, 229, 255, 0.08);
-      border: 1px solid rgba(0, 229, 255, 0.25);
-      padding: 6px 14px;
-      border-radius: 12px;
-      text-align: right;
-    }
-
-    /* Key Guarantee Highlight */
-    .highlight-card {
-      background: linear-gradient(135deg, rgba(0, 242, 157, 0.08) 0%, rgba(0, 229, 255, 0.03) 100%);
-      border: 1px solid rgba(0, 242, 157, 0.35);
-      border-radius: 20px;
-      padding: 22px;
-      margin-bottom: 24px;
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      box-shadow: 0 8px 24px -6px rgba(0, 242, 157, 0.1);
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-
-    .highlight-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(0, 242, 157, 0.6);
-    }
-
-    .highlight-icon {
-      font-size: 24px;
-      line-height: 1;
-      background: rgba(0, 242, 157, 0.12);
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      background: rgba(0, 242, 157, 0.1);
       border: 1px solid rgba(0, 242, 157, 0.3);
-      padding: 10px;
-      border-radius: 14px;
-      flex-shrink: 0;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
     }
-
-    .highlight-card h3 {
-      color: var(--emerald-mate);
-      font-size: 15px;
-      font-weight: 800;
-      margin-bottom: 4px;
-    }
-
-    .highlight-card p {
-      font-size: 13px;
-      color: #E2E8F0;
-      line-height: 1.55;
-    }
-
-    /* Policy Section Cards */
-    .policy-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      padding: 24px 28px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
-      transition: border-color 0.25s ease, transform 0.25s ease;
-    }
-
-    .policy-card:hover {
-      border-color: #2B354C;
-      transform: translateY(-1px);
-    }
-
-    .policy-card h2 {
-      font-size: 16px;
+    h1 {
+      font-size: 2rem;
       font-weight: 800;
       color: #FFFFFF;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .num-pill {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 800;
-      background: #080A0F;
-      color: var(--cyan-accent);
-      border: 1px solid #1C212E;
-      width: 28px;
-      height: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 9px;
-      flex-shrink: 0;
-    }
-
-    .policy-card p {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-      line-height: 1.6;
-    }
-
-    .policy-card p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Sub Grids */
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 12px;
-      margin-top: 14px;
-    }
-
-    .sub-item {
-      background: var(--sub-card);
-      border: 1px solid var(--card-border);
-      border-radius: 14px;
-      padding: 14px 16px;
-      transition: all 0.2s ease;
-    }
-
-    .sub-item:hover {
-      background: var(--sub-card-hover);
-      border-color: #2B354C;
-    }
-
-    .sub-item strong {
-      font-size: 13px;
-      color: var(--text-main);
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .sub-item span {
-      font-size: 11.5px;
-      color: var(--text-dim);
-      line-height: 1.4;
-      display: block;
-    }
-
-    ul.bullet-list {
-      list-style: none;
-      margin: 12px 0;
-    }
-
-    ul.bullet-list li {
-      font-size: 13px;
-      color: #E2E8F0;
-      padding-left: 26px;
-      position: relative;
       margin-bottom: 8px;
-      line-height: 1.5;
     }
-
-    ul.bullet-list li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: var(--emerald-mate);
-      font-weight: 900;
-      font-size: 13px;
+    .last-updated {
+      color: var(--muted);
+      font-size: 14px;
     }
-
-    /* Regulatory Warning Card */
-    .disclaimer-card {
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(239, 68, 68, 0.04) 100%);
-      border: 1px solid rgba(245, 158, 11, 0.35);
-      border-radius: 20px;
-      padding: 24px 28px;
-      margin-bottom: 24px;
-    }
-
-    .disclaimer-card h2 {
-      color: #FBBF24;
-      font-size: 15px;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .disclaimer-card p {
-      font-size: 12.5px;
-      color: #E2E8F0;
-      line-height: 1.6;
-    }
-
-    /* Contact Box */
-    .contact-box {
-      background: var(--sub-card);
+    .card {
+      background-color: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 16px;
-      padding: 16px 20px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
     }
-
-    .email-btn {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
+    h2 {
+      font-size: 1.25rem;
       font-weight: 700;
-      color: var(--cyan-accent);
-      background: #12151D;
-      border: 1px solid #1C212E;
-      padding: 10px 18px;
-      border-radius: 12px;
-      text-decoration: none;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      display: inline-flex;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: flex;
       align-items: center;
       gap: 8px;
     }
-
-    .email-btn:hover {
-      background: #181D28;
-      border-color: var(--cyan-accent);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 229, 255, 0.2);
+    p {
+      color: var(--muted);
+      margin-bottom: 14px;
+      font-size: 15px;
     }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 28px 0 12px;
-      font-size: 12px;
-      color: var(--text-dim);
-      border-top: 1px solid #181C26;
-      margin-top: 32px;
+    p:last-child {
+      margin-bottom: 0;
     }
-
-    footer a {
-      color: var(--text-muted);
+    ul {
+      margin: 12px 0 14px 20px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    strong {
+      color: var(--text);
+    }
+    .highlight-box {
+      background: rgba(0, 229, 255, 0.05);
+      border: 1px solid rgba(0, 229, 255, 0.2);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .highlight-box p {
+      color: #E2E8F0;
+    }
+    .contact-link {
+      color: var(--accent-cyan);
       text-decoration: none;
-      margin: 0 8px;
-      transition: color 0.2s;
+      font-weight: 600;
     }
-
-    footer a:hover {
-      color: var(--cyan-accent);
+    .contact-link:hover {
+      text-decoration: underline;
     }
-
-    @media (max-width: 640px) {
-      body { padding: 16px 12px 48px; }
-      header { padding: 20px; }
-      .title-box h1 { font-size: 22px; }
-      .meta-badge { text-align: left; }
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-
   <div class="container">
+    
+    <div class="header">
+      <span class="badge">Official Legal Document</span>
+      <h1>Privacy Policy</h1>
+      <div class="last-updated">App: <strong>TradeMate - Stock & Options Calculator</strong> | Last Updated: August 2026</div>
+    </div>
 
-    <!-- Header with Interactive Pop-up Vector Logo -->
-    <header>
-      <div class="brand-wrap">
-        <div class="logo-container" tabindex="0" title="TradeMate Official Logo">
-          <!-- Standalone SVG Logo with Red T, Green M & Candlesticks -->
-          <svg class="app-logo" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="logoBg" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#080A0F" />
-                <stop offset="100%" stop-color="#0D1017" />
-              </linearGradient>
-              <linearGradient id="tmRed" x1="76" y1="52" x2="132" y2="120" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#FF385C" />
-                <stop offset="100%" stop-color="#E02447" />
-              </linearGradient>
-              <linearGradient id="tmGreen" x1="140" y1="52" x2="204" y2="120" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#00F29D" />
-                <stop offset="100%" stop-color="#00D285" />
-              </linearGradient>
-              <linearGradient id="neonPulseLine" x1="60" y1="360" x2="452" y2="100" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#00E5FF" />
-                <stop offset="60%" stop-color="#00F29D" />
-                <stop offset="100%" stop-color="#FFFFFF" />
-              </linearGradient>
-            </defs>
-            
-            <rect width="512" height="512" rx="108" fill="url(#logoBg)" />
-            <rect x="6" y="6" width="500" height="500" rx="102" stroke="#1C212E" stroke-width="4" />
-
-            <g transform="translate(256, 256) scale(0.88) translate(-256, -256)">
-              <!-- Letter T (Red #FF385C) -->
-              <path d="M 76 52 H 132 V 70 H 113 V 120 H 95 V 70 H 76 Z" fill="url(#tmRed)" />
-              <!-- Letter M (Neon Emerald #00F29D) -->
-              <path d="M 140 52 H 158 L 172 88 L 186 52 H 204 V 120 H 188 V 78 L 176 106 H 168 L 156 78 V 120 H 140 Z" fill="url(#tmGreen)" />
-              
-              <!-- Red Candlestick (Bearish) -->
-              <line x1="130" y1="180" x2="130" y2="380" stroke="#FF385C" stroke-width="3.5" stroke-linecap="round" />
-              <rect x="114" y="220" width="32" height="110" rx="5" fill="#FF385C" />
-
-              <!-- Green Candlestick (Bullish) -->
-              <line x1="256" y1="130" x2="256" y2="400" stroke="#00F29D" stroke-width="3.5" stroke-linecap="round" />
-              <rect x="240" y="170" width="32" height="180" rx="5" fill="#00F29D" />
-
-              <!-- Cyan Candlestick (Target Breakout) -->
-              <line x1="382" y1="80" x2="382" y2="350" stroke="#00E5FF" stroke-width="3.5" stroke-linecap="round" />
-              <rect x="366" y="110" width="32" height="150" rx="5" fill="#00E5FF" />
-
-              <!-- Trend Wave -->
-              <path d="M 60 360 L 130 270 L 210 310 L 256 190 L 320 230 L 382 130 L 440 70" stroke="url(#neonPulseLine)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
-              <polygon points="452,58 446,80 424,74" fill="#00F29D" />
-            </g>
-          </svg>
-          <span class="logo-tooltip">TradeMate</span>
-        </div>
-
-        <div class="title-box">
-          <h1><span class="text-trade">Trade</span><span class="text-mate">Mate</span></h1>
-          <p>Privacy Policy &amp; Governance</p>
-        </div>
-      </div>
-
-      <div class="meta-badge">
-        Effective: Current Release (2026)<br>
-        Version: 1.0.0
-      </div>
-    </header>
-
-    <!-- Key Guarantee Banner -->
-    <div class="highlight-card">
-      <div class="highlight-icon">🛡️</div>
-      <div>
-        <h3>100% Client-Side &amp; Offline Privacy</h3>
+    <div class="card">
+      <h2>1. Overview</h2>
+      <p>
+        <strong>TradeMate</strong> ("we", "our", or "the application") is committed to protecting your privacy. This Privacy Policy outlines how our application operates, what data is processed, and your rights regarding data privacy.
+      </p>
+      <div class="highlight-box">
         <p>
-          <strong class="text-trade">Trade</strong><strong class="text-mate">Mate</strong> processes all stock averaging, options lot computations, multi-tranche profit booking exits, trade risk projections, and compounding tables entirely on your local device. <strong>We do not operate remote databases or store your financial figures on our servers.</strong>
+          <strong>Core Privacy Principle:</strong> TradeMate is designed as an offline-first financial calculator utility. We do <strong>NOT</strong> collect, sell, transmit, or store any personal data, trade records, brokerage credentials, or financial numbers on remote servers. All your calculations remain strictly on your local device.
         </p>
       </div>
     </div>
 
-    <!-- Section 1: Data Collection -->
-    <div class="policy-card">
-      <h2><span class="num-pill">01</span> Information We Do NOT Collect</h2>
-      <p>We respect your confidential trading records. When using <strong class="text-trade">Trade</strong><strong class="text-mate">Mate</strong>:</p>
-      <ul class="bullet-list">
-        <li><strong>No Broker Logins:</strong> We never request broker credentials, Demat account keys, or API tokens.</li>
-        <li><strong>No Personal Financial Records:</strong> We do not log or transmit your stock names, quantities, buy prices, or trade logs.</li>
-        <li><strong>No PII Required:</strong> No names, email addresses, phone numbers, or PAN numbers are collected to use calculation tools.</li>
+    <div class="card">
+      <h2>2. Information Collection and Use</h2>
+      <p>TradeMate does not require user registration or account creation. Specifically:</p>
+      <ul>
+        <li><strong>No Personal Identifiable Information (PII):</strong> We do not collect your name, phone number, physical address, or email address.</li>
+        <li><strong>No Financial or Trading Credentials:</strong> TradeMate does not connect to any brokerage accounts (e.g., Zerodha, Groww, AngelOne, Robinhood) and does not store account logins, balances, or PINs.</li>
+        <li><strong>Local Storage:</strong> Any trade logs, calculation presets, or scrapbook notes you save are stored locally on your device storage (via secure LocalStorage/IndexedDB). You can wipe this data at any time by clearing the application data from your device settings or using the in-app Reset options.</li>
       </ul>
     </div>
 
-    <!-- Section 2: Local Storage -->
-    <div class="policy-card">
-      <h2><span class="num-pill">02</span> Local Device Storage (localStorage)</h2>
-      <p>The application saves lightweight data directly inside your browser or device sandboxed storage (<code>localStorage</code>) to power local functionality:</p>
-      <div class="grid-3">
-        <div class="sub-item">
-          <strong>Currency Symbol</strong>
-          <span>Remembers your preferred currency (e.g., ₹ INR, $ USD, € EUR, £ GBP).</span>
-        </div>
-        <div class="sub-item">
-          <strong>Saved History</strong>
-          <span>Locally stores snapshots you explicitly choose to save via the "Save results" button.</span>
-        </div>
-        <div class="sub-item">
-          <strong>Pro Pass Tokens</strong>
-          <span>Stores 24-Hour Pro Pass expiry tokens earned via Rewarded Ads.</span>
-        </div>
-      </div>
-      <p style="margin-top: 14px; font-size: 12px; color: #94A3B8;">
-        <em>Tip: You can clear all saved history anytime inside the <strong>Settings &rarr; Clear History</strong> section.</em>
+    <div class="card">
+      <h2>3. Third-Party Services & Advertising</h2>
+      <p>
+        The application may display advertisements served by third-party advertising networks (such as <strong>Google AdMob</strong>) or utilize basic crash diagnostic tools. These services may collect standard anonymous device identifiers to serve non-personalized or personalized ads as permitted by Google Play Developer policies:
+      </p>
+      <ul>
+        <li><strong>Google Play Services:</strong> Used for app updates, licensing, and security integrity.</li>
+        <li><strong>Google AdMob (if enabled):</strong> May use an anonymous Advertising ID to display ads. You can manage or reset your Advertising ID via your Android device's <em>Settings > Google > Ads</em>.</li>
+      </ul>
+      <p>
+        For more information on how Google uses data, please visit <a class="contact-link" href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy & Terms</a>.
       </p>
     </div>
 
-    <!-- Section 3: Third-Party Advertising & AdMob -->
-    <div class="policy-card">
-      <h2><span class="num-pill">03</span> Third-Party Advertising (Google AdMob)</h2>
+    <div class="card">
+      <h2>4. Device Permissions</h2>
       <p>
-        Free versions of <strong class="text-trade">Trade</strong><strong class="text-mate">Mate</strong> may display advertisements served via Google AdMob (Banner, Rewarded 24-Hour Pass, and Interstitial Video ads) to fund continuous maintenance.
+        TradeMate requires minimal permissions to operate:
       </p>
-      <p>
-        Google AdMob may process pseudonymous identifiers (e.g., Google Advertising ID) and device technical telemetry subject to Google's Privacy &amp; Terms. You can reset or opt out of personalized ad tracking in your Android device settings or upgrade to TradeMate Pro for an ad-free experience.
-      </p>
-    </div>
-
-    <!-- Section 4: Export Permissions -->
-    <div class="policy-card">
-      <h2><span class="num-pill">04</span> Device Permissions (PDF &amp; Image Export)</h2>
-      <p>
-        <strong class="text-trade">Trade</strong><strong class="text-mate">Mate</strong> requests device permissions strictly for user-requested tasks:
-      </p>
-      <ul class="bullet-list">
-        <li><strong>Storage / Downloads:</strong> Used only when you trigger "Download PDF" or "Download Image" to save the rendered calculation file directly to your device.</li>
-        <li><strong>System Share:</strong> Opens your device’s native share dialog when you tap "Share as PDF" or "Share Setup Card".</li>
+      <ul>
+        <li><strong>Internet Access:</strong> Required only for serving advertisements and verifying Play Store licensing.</li>
+        <li><strong>Network State:</strong> Checks for active internet connectivity to load ad banners.</li>
+        <li><strong>No Dangerous Permissions:</strong> TradeMate does <strong>NOT</strong> request access to your Contacts, Camera, Microphone, SMS, or Location.</li>
       </ul>
     </div>
 
-    <!-- Section 5: Regulatory Disclaimer -->
-    <div class="disclaimer-card">
-      <h2>⚠️ Regulatory &amp; Financial Disclaimer</h2>
+    <div class="card">
+      <h2>5. Children's Privacy</h2>
       <p>
-        <strong class="text-trade">Trade</strong><strong class="text-mate">Mate</strong> is strictly a quantitative calculation and arithmetic utility. <strong>We are NOT SEBI-registered, nor licensed financial advisors.</strong> We do not provide buy/sell signals, tips, portfolio management, or investment recommendations. All outputs are mathematical estimations based on your inputs.
+        TradeMate is a financial utility intended for general audiences and trading enthusiasts. We do not knowingly collect any information from children under the age of 13. If you believe that a child has provided us with personal information, please contact us immediately.
       </p>
     </div>
 
-    <!-- Section 6: Contact -->
-    <div class="policy-card">
-      <h2><span class="num-pill">05</span> Privacy Inquiries &amp; Support</h2>
+    <div class="card">
+      <h2>6. Security of Your Data</h2>
       <p>
-        If you have any questions or data privacy inquiries regarding <strong class="text-trade">Trade</strong><strong class="text-mate">Mate</strong>, contact us:
+        Because all calculation data resides locally on your personal device, the security of your stored notes and trade calculations is protected by your device's operating system security (passcodes, biometric locks, and app sandbox security).
       </p>
-      <div class="contact-box">
-        <div>
-          <strong style="color: #FFFFFF; font-size: 13px; display: block;">Developer Support</strong>
-          <span style="font-size: 11.5px; color: var(--text-dim);">Response within 24–48 business hours</span>
-        </div>
-        <a href="mailto:TradeMatePro.Support@gmail.com" class="email-btn">
-          ✉️ TradeMatePro.Support@gmail.com
-        </a>
-      </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2026 <strong class="text-trade">Trade</strong><strong class="text-mate">Mate</strong> • All Rights Reserved.</p>
-      <div style="margin-top: 8px;">
-        <a href="#top">Back to Top</a> &bull;
-        <a href="mailto:TradeMatePro.Support@gmail.com">Contact Developer</a>
-      </div>
-    </footer>
+    <div class="card">
+      <h2>7. Changes to This Privacy Policy</h2>
+      <p>
+        We may update our Privacy Policy periodically to reflect app updates or regulatory changes. Any modifications will be posted directly to this publicly accessible URL.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8. Contact Us</h2>
+      <p>
+        If you have any questions, feedback, or concerns regarding this Privacy Policy or TradeMate, please contact the developer at:
+      </p>
+      <p>
+        <strong>Email:</strong> <a class="contact-link" href="mailto:Athaulla.Athu44@gmail.com">Athaulla.Athu44@gmail.com</a>
+      </p>
+    </div>
+
+    <div class="footer">
+      &copy; 2026 TradeMate. All rights reserved.
+    </div>
 
   </div>
-
 </body>
 </html>
